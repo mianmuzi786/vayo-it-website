@@ -415,6 +415,9 @@ a {
    9. Responsive Media Queries (Mobile Optimierung)
    ========================================================================== */
 @media (max-width: 768px) {
+    .main-header {
+        position: static !important;
+    }
     .header-container {
         flex-direction: column;
         gap: 1rem;
