@@ -418,14 +418,32 @@ a {
     .header-container {
         flex-direction: column;
         gap: 1rem;
+        align-items: center; /* Zentriert das Logo und die Navigation */
     }
     
+    /* HIER IST DIE ERGÄNZUNG FÜR DEIN MENÜ: */
+    .nav-links { /* Ersetze dies durch deine echte Menü-Klasse */
+        flex-direction: column; /* Stapelt die Menüpunkte untereinander */
+        align-items: center;
+        width: 100%;
+        gap: 0.75rem; /* Abstand zwischen den einzelnen Links */
+        padding: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 0.5rem 0; /* Macht die Links auf dem Handy leichter anklickbar */
+    }
+    
+    /* Deine bestehenden Styles bleiben unverändert: */
     .hero h1 {
         font-size: 2.25rem;
     }
     
     .services-grid {
-        grid-template-columns: 1fr; /* Nur eine Spalte auf Smartphones */
+        grid-template-columns: 1fr;
     }
     
     .contact-container {
