@@ -39,14 +39,11 @@ a {
 }
 
 /* ==========================================================================
-   2. Header & Navigation (Clean & Sticky-ready)
-   ========================================================================== */
-/* ==========================================================================
    2. Header & Navigation (Dunkelblau für weißen Logo-Text)
    ========================================================================== */
 .main-header {
-    background-color: var(--dark-blue); /* Dunkelblaues Design (#0f172a) aus deinen Variablen */
-    border-bottom: 1px solid #1e293b;   /* Dezente, dunklere Trennlinie */
+    background-color: var(--dark-blue); 
+    border-bottom: 1px solid #1e293b;   
     position: sticky;
     top: 0;
     z-index: 100;
@@ -61,20 +58,26 @@ a {
     align-items: center;
 }
 
+/* DESKTOP-LOGIK: Löst den umschließenden Container optisch auf, 
+   damit die Elemente direkt im Header-Container verteilt werden */
+.header-mobile-top {
+    display: contents;
+}
+
 /* Container für das gesamte Logo (Icon + Text) */
 .logo-wrapper {
     display: flex;
     align-items: center; 
     gap: 0.75rem;        
-    cursor: pointer;    /* Zeigt dem Nutzer die Klick-Hand, wenn er mit der Maus drüberfährt */
-    color: inherit;     /* Verhindert, dass der Browser den Text lila oder blau färbt */
+    cursor: pointer;    
+    color: inherit;     
 }
 
 /* Das leuchtend blaue Monitor-Icon */
 .logo-icon {
     width: 42px;         
     height: 42px;
-    color: #0284c7;      /* Das moderne Cyan-Blau */
+    color: #0284c7;      
 }
 
 /* Container für die zwei Textzeilen */
@@ -88,7 +91,7 @@ a {
 .logo-main {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #ffffff;         /* "VAYO" strahlt jetzt in reinem Weiß! */
+    color: #ffffff;         
     letter-spacing: 0.5px;
 }
 
@@ -101,12 +104,12 @@ a {
 .logo-sub {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #94a3b8;         /* Edles Graublau exakt wie auf dem Bild */
+    color: #94a3b8;         
     letter-spacing: 2px;    
     margin-top: 2px;
 }
 
-/* Navigationslinks im dunklen Header (müssen hell sein) */
+/* Navigationslinks im dunklen Header */
 .nav-links {
     display: flex;
     list-style: none;
@@ -115,27 +118,34 @@ a {
 
 .nav-links a {
     font-weight: 500;
-    color: #e2e8f0;         /* Helles Grauweiß für gute Lesbarkeit */
+    color: #e2e8f0;         
 }
 
 .nav-links a:hover {
-    color: #0284c7;         /* Wechselt beim Drüberfahren zu Cyan-Blau */
+    color: #0284c7;         
 }
 
 /* Telefonnummer-Button im dunklen Header */
 .phone-link {
     font-weight: 600;
     color: #ffffff;
-    background: #1e293b;    /* Dunklerer Button-Hintergrund */
+    background: #1e293b;    
     padding: 0.5rem 1rem;
     border-radius: 50px;
     border: 1px solid #334155;
+    white-space: nowrap;
 }
 
 .phone-link:hover {
-    background: #0284c7;    /* Button wird beim Drüberfahren komplett Blau */
+    background: #0284c7;    
     border-color: #0284c7;
 }
+
+/* Unsichtbare mobile Steuerungselemente für die Desktop-Ansicht */
+.menu-toggle, .hamburger-label {
+    display: none; 
+}
+
 /* ==========================================================================
    3. Hero Sektion (Der erste Eindruck)
    ========================================================================== */
@@ -245,14 +255,14 @@ a {
    ========================================================================== */
 .bg-dark-block {
     background-color: var(--dark-blue);
-    max-width: 100%; /* Erstreckt sich über die ganze Breite */
+    max-width: 100%; 
     color: #f1f5f9;
 }
 
 .container-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1px 0; /* Verhindert Margin-Collapse */
+    padding: 1px 0; 
 }
 
 .text-white { color: #ffffff !important; }
@@ -312,7 +322,7 @@ a {
    ========================================================================== */
 .contact-section {
     padding: 6rem 2rem;
-    max-width: 700px !important; /* Formular kompakter halten */
+    max-width: 700px !important; 
     margin: 0 auto;
 }
 
@@ -416,40 +426,107 @@ a {
    ========================================================================== */
 @media (max-width: 768px) {
     .main-header {
-        position: static !important;
-    }
-    .header-container {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center; /* Zentriert das Logo und die Navigation */
-    }
-    
-    /* HIER IST DIE ERGÄNZUNG FÜR DEIN MENÜ: */
-    .nav-links { /* Ersetze dies durch deine echte Menü-Klasse */
-        flex-direction: column; /* Stapelt die Menüpunkte untereinander */
-        align-items: center;
-        width: 100%;
-        gap: 0.75rem; /* Abstand zwischen den einzelnen Links */
-        padding: 0;
+        position: sticky !important;
+        top: 0;
+        z-index: 1000;
     }
 
-    .nav-links a {
+    .header-container {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 0.75rem 1rem;
+        position: relative;
+    }
+
+    /* Schaltet das 'display: contents' vom Desktop aus und aktiviert echtes Flexbox fürs Handy */
+    .header-mobile-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% - 35px); /* Genug Platz für das Hamburger-Icon rechts lassen */
+    }
+
+    /* Das Logo auf dem Handy kompakter machen */
+    .logo-main {
+        font-size: 1.3rem;
+    }
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Macht den Telefon-Button auf Smartphones übersichtlich und schmal */
+    .header-contact .phone-link {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.6rem;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Das Hamburger-Menü-Icon (Drei feine Linien) */
+    .hamburger-label {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        position: absolute;
+        right: 1rem;
+        top: 1.4rem; /* Hält das Icon exakt auf Höhe der oberen Zeile */
+        z-index: 1001;
+    }
+
+    .hamburger-label span {
         display: block;
-        text-align: center;
+        width: 22px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Versteckt die Navigation standardmäßig im mobilen Zustand */
+    .main-nav {
+        display: none; 
         width: 100%;
-        padding: 0.5rem 0; /* Macht die Links auf dem Handy leichter anklickbar */
+        margin-top: 0.5rem;
     }
-    
-    /* Deine bestehenden Styles bleiben unverändert: */
-    .hero h1 {
-        font-size: 2.25rem;
+
+    .nav-links {
+        display: flex;
+        flex-direction: column; 
+        gap: 0px;
+        width: 100%;
+        padding: 0.5rem 0 0 0;
+        list-style: none;
     }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
+
+    .nav-links li {
+        width: 100%;
     }
+
+    .nav-links li a {
+        display: block;
+        padding: 0.8rem 0.25rem;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    }
+
+    /* --- REINE CSS TOGGLE-LOGIK --- */
     
-    .contact-container {
-        padding: 1.5rem;
+    /* Wenn die Checkbox aktiv ist -> Blende die Navigation ein */
+    .menu-toggle:checked ~ .main-nav {
+        display: block;
+    }
+
+    /* Verwandelt das Hamburger-Icon bei Klick flüssig in ein 'X' */
+    .menu-toggle:checked ~ .hamburger-label span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .hamburger-label span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .hamburger-label span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
