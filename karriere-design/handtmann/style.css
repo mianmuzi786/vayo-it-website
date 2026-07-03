@@ -1,0 +1,582 @@
+/* ==========================================
+   1. MODERN CSS RESET & CORPORATE DESIGN VARIABLES
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Handtmann Corporate Identity Farben */
+    --handtmann-orange: #e65f0f;   /* Das offizielle Firmen-Orange */
+    --handtmann-dark: #dadce0;     /* Edles Anthrazit für starken Kontrast */
+    --handtmann-soft-bg: #f8fafc;  /* Softes Off-White für Hintergrund-Karten */
+    --text-main: #334155;          /* Gut lesbarer Schieferton für Standardtexte */
+    --text-light: #e65f0f;         /* Reines Weiß */
+    --card-bg: #ffffff;
+    
+    /* Radien & Schriften */
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #cbd5e1; /* Hintergrund außerhalb der Anzeige */
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================
+   2. OUTER FRAME
+   ========================================== */
+.outer-frame {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px rgba(230, 95, 15, 0.08);
+    overflow: hidden;
+}
+
+/* ==========================================
+   3. LOGO SECTION
+   ========================================== */
+.logo {
+    padding: 10px 50px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+    height: 72px;
+    width: auto;
+    display: block;
+    /* image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges; */
+}
+
+/* ==========================================
+   4. HEADER & IMAGES
+   ========================================== */
+.header {
+    position: relative;
+    background-color: var(--handtmann-dark);
+    overflow: hidden;
+    height: 340px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Overlay-Verlauf passend zum neuen dunklen CI-Ton */
+.slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(to bottom, rgba(30, 41, 59, 0.2), rgba(30, 41, 59, 0.6)); */
+    z-index: 1;
+}
+
+.slide-show {
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-show li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: simpleFade 12s infinite ease-in-out;
+}
+
+.slide-show li:nth-child(1) { animation-delay: 0s; opacity: 1; }
+.slide-show li:nth-child(2) { animation-delay: 4s; }
+.slide-show li:nth-child(3) { animation-delay: 8s; }
+
+@keyframes simpleFade {
+    0%, 100% { opacity: 0; }
+    8%, 33% { opacity: 1; } 
+    41% { opacity: 0; }
+}
+
+.slide-show img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   MUSTER-LOGO (WHITE-LABEL PLATZHALTER)
+   ========================================== */
+.placeholder-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+}
+
+/* Das High-Tech/Zahnrad Icon */
+.logo-icon {
+    width: 34px;
+    height: 34px;
+    background-color: var(--handtmann-orange);
+    border-radius: 8px; /* Moderner App-Icon-Look */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kleiner stylischer Punkt in der Mitte des Icons */
+.gear-core {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+}
+
+/* Text-Styling */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-name {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #1e293b; /* Das edle Anthrazit-Schwarz */
+    letter-spacing: 1.5px;
+    line-height: 1;
+    font-style: italic; /* Schräggestellt wie beim Original */
+}
+
+.brand-subline {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #475569; /* Ein dezentes Dunkelblau/Grau */
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+}
+
+/* ==========================================
+   5. INTRO SEKTION (Zentrierter Titel am Boden)
+   ========================================== */
+.flex {
+    padding: 50px 50px;
+    background: #ffffff;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column; 
+    gap: 40px;
+    width: 100%;
+}
+
+.intro-columns {
+    display: flex;
+    gap: 50px;
+}
+
+.intro-columns .left, 
+.intro-columns .right {
+    flex: 1;
+}
+
+h2.head {
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--handtmann-orange); /* Willkommen-Titel leuchten in Orange */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.intro-columns p {
+    color: #475569;
+    font-size: 12pt;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.job-header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center;     
+    margin-top: 10px;       
+    gap: 15px;              
+}
+
+h1.job-title {
+    color: #000000;
+    font-size: 26pt;       
+    /* color: var(--handtmann-dark); */
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.job-meta {
+    display: inline-block;
+    background: var(--handtmann-soft-bg);
+    color: var(--handtmann-orange); /* Orange Akzentschrift in der Pille */
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 9pt;
+    font-weight: 700;
+    border: 1px solid #a0a9b4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.job-header-center .button {
+    display: inline-block;
+}
+
+/* ——— PREMIUM ORANGE BUTTON STYLING ——— */
+.button a {
+    display: inline-block;
+    background: var(--handtmann-orange);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 35px;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 9.5pt;
+    transition: all 0.3s ease;
+    border: 2px solid var(--handtmann-orange);
+    box-shadow: 0 4px 15px rgba(230, 95, 15, 0.2);
+}
+
+.button a:hover {
+    transform: translateY(-2px);
+    background: transparent;
+    color: var(--handtmann-orange);
+    border-color: var(--handtmann-orange);
+    box-shadow: 0 10px 20px rgba(230, 95, 15, 0.3);
+}
+
+/* ==========================================
+   6. MAIN CONTENT (Anpassung für hellen Hintergrund)
+   ========================================== */
+.content {
+    background-color: var(--handtmann-dark); /* Ist jetzt dein helles #dadce0 */
+    padding: 20px 0;
+}
+
+.content .flex {
+    background: transparent;
+    display: flex;
+    gap: 35px;
+    padding: 10px 20px;
+}
+
+.profil-aufgaben {
+    flex: 1;
+    /* KORREKTUR 1: Da der Hintergrund hell ist, machen wir die Boxen reinweiß 
+       oder dezent dunkler, damit sie sich schön abheben */
+    background: #ffffff; 
+    padding: 40px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.08); /* Dunklere statt hellere Kante */
+}
+
+h2.subhead-body {
+    font-size: 13pt;
+    
+    /* KORREKTUR 2: Überschrift von weiß auf ein starkes Dunkelgrau/Schwarz setzen */
+    color: #1e293b; 
+    
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Der orangefarbene Akzentstrich bleibt natürlich */
+h2.subhead-body::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--handtmann-orange);
+    border-radius: 2px;
+}
+
+.content ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+    font-size: 11pt;
+    
+    /* KORREKTUR 3: Der Listentext von weiß auf ein gut lesbares Dunkelgrau/Schwarz setzen */
+    color: #334155; 
+    
+    list-style: none;
+}
+
+/* Die orangenen Pfeile bleiben ebenfalls als Kontrast */
+.content ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--handtmann-orange);
+    font-weight: bold;
+    font-size: 11pt;
+    top: -1px;
+}
+
+/* ==========================================
+   7. BENEFITS SECTION (Kompaktes Listen-Layout)
+   ========================================== */
+.darf-freuen {
+    padding: 35px 50px; /* Vertikales Padding von 60px auf 35px verkürzt */
+    background-color: #ffffff;
+}
+
+.darf-freuen h2.subhead-body {
+    color: #1e293b; /* Passend zu deiner Änderung auf den dunklen Anthrazit-Ton */
+}
+
+.darf-freuen h2.subhead-body::after {
+    background-color: var(--handtmann-orange);
+}
+
+.darf-freuen ul {
+    display: flex;
+    flex-direction: column; /* Entfernt das zweispaltige Grid und macht eine saubere Liste */
+    gap: 10px;              /* Deutlich kleinerer Abstand zwischen den Zeilen */
+    margin-top: 25px;
+}
+
+.darf-freuen ul li {
+    background: transparent; /* Entfernt die fetten Hintergrund-Boxen komplett */
+    padding: 4px 0 4px 28px; /* Reduziert den Innenabstand radikal auf ein Minimum */
+    border-left: none;       /* Entfernt die linke Kante */
+    font-size: 11pt;
+    color: var(--text-main);
+    list-style: none;
+    position: relative;      /* Wichtig für die Positionierung des Häkchens */
+}
+
+.darf-freuen ul li strong {
+    color: #1e293b;
+}
+
+/* Das grüne Häkchen dezent und präzise vor den Text setzen */
+.darf-freuen ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    color: var(--handtmann-orange);
+    font-weight: bold;
+    font-size: 11pt;
+}
+/* ==========================================
+   8. DIRECT APPLY BANNER
+   ========================================== */
+.direct-apply {
+    padding: 35px 40px;
+    background: #fff7ed; /* Softes Orange-Weiß für Eyecatch-Effekt */
+    border-left: 4px solid var(--handtmann-orange);
+    margin: 0 50px 40px 50px;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.direct-apply h2.subhead-body {
+    color: var(--handtmann-dark);
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+.direct-apply h2.subhead-body::after { content: none; }
+
+.direct-apply p {
+    font-size: 10pt;
+    color: #334155;
+}
+
+.direct-apply a {
+    color: var(--handtmann-orange);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--handtmann-orange);
+}
+
+/* ==========================================
+   9. CONTACT GRAPHIC BANNER
+   ========================================== */
+.contact-banner {
+    width: 100%;
+    max-height: 160px;
+    overflow: hidden;
+}
+
+.contact-banner img {
+    width: 100%;
+    height: 160px;
+    display: block;
+    object-fit: cover;
+}
+
+/* ==========================================
+   10. FOOTER STYLING
+   ========================================== */
+#footer {
+    background-color: var(--handtmann-dark);
+    color: #1e293b;
+    padding: 40px;
+}
+
+.flex-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-avatar {
+    flex-shrink: 0;
+}
+
+.footer-avatar img {
+    width: 120px;       
+    height: 120px;
+    object-fit: cover;  
+    border-radius: 50%; 
+    border: 3px solid var(--handtmann-orange); /* Orange Rahmen um den Ansprechpartner */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.footer-contact-info {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-contact-info .contact-label {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--handtmann-orange);
+    font-weight: 700;
+}
+
+.footer-contact-info h3.contact-name {
+    font-size: 16pt;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 2px;
+}
+
+.footer-contact-info .company-name {
+    font-size: 12pt;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.footer-contact-info .location {
+    font-size: 11t;
+    opacity: 0.7;
+    margin-bottom: 8px;
+}
+
+.footer-links {
+    font-size: 11pt;
+    color: rgba(8, 8, 8, 0.8);
+}
+
+.footer-links a {
+    color: #060606; 
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid var(--handtmann-orange);
+}
+
+.footer-cta-button {
+    flex-shrink: 0;
+}
+
+/* Weißer Kontrast-Button im Footer */
+.footer-cta-button .button a {
+    background: var(--handtmann-orange);
+    color: #ffffff;
+    border-color: #e65f0f;
+    white-space: nowrap; 
+    box-shadow: none;
+}
+
+.footer-cta-button .button a:hover {
+    transform: translate(-2px);
+    background: transparent;
+    color: var(--handtmann-orange);
+box-shadow: 0 10px 20px rgba(230,95, 15, 0.3);
+}
+
+/* ==========================================
+   11. RESPONSIVE DESIGN (SMARTPHONES)
+   ========================================== */
+@media (max-width: 768px) {
+    .intro-columns,
+    .content .flex, 
+    .flex-footer,
+    .darf-freuen ul {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .flex-footer .right-cta {
+        text-align: left;
+    }
+    .logo, .flex, .content .flex, .darf-freuen, #footer {
+        padding: 40px 25px;
+    }
+    .direct-apply {
+        margin: 0 25px 30px 25px;
+    }
+    .footer-contact-info {
+        align-items: center;
+        text-align: center;
+    }
+    h1.job-title {
+    color: #000000; /* KORREKTUR: Setzt die Schriftfarbe auf reines Schwarz */
+    
+    /* Hier stehen deine restlichen Styles, z.B.: */
+    font-size: 26pt;       
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+}

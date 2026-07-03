@@ -1,0 +1,535 @@
+/* ==========================================
+   1. MODERN CSS RESET & CORPORATE DESIGN VARIABLES
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Exakte Farbpalette laut Screenshot */
+    --iventa-dark-green: #1d3b2b;  /* Edles, dunkles Waldgrün für Hintergründe */
+    --iventa-mint: #3af296;        /* Leuchtendes Mintgrün für Highlights & Akzente */
+    --iventa-soft-bg: #f4f7f5;     /* Leicht abgetöntes Off-White für inneren Kontrast */
+    --text-main: #1e293b;          /* Dunkler Schieferton für beste Lesbarkeit */
+    --text-light: #ffffff;         /* Weiß für Text auf dunklem Grund */
+    --card-bg: #ffffff;
+    
+    /* Radien & Schriften */
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #e2e8f0; /* Hintergrund außerhalb der Anzeige */
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================
+   2. OUTER FRAME (Ästhetisch & Kompakt)
+   ========================================== */
+.outer-frame {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px rgba(29, 59, 43, 0.12);
+    overflow: hidden;
+}
+
+/* ==========================================
+   3. LOGO SECTION (Exakt wie die Header-Leiste im Bild)
+   ========================================== */
+.logo {
+    padding: 30px 50px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+    height: 38px; /* Elegante, nicht zu wuchtige Höhe */
+    width: auto;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* ==========================================
+   4. HEADER & IMAGES
+   ========================================== */
+.header {
+    position: relative;
+    background-color: var(--iventa-dark-green);
+    overflow: hidden;
+    height: 340px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Eleganter, dunkler Overlay-Verlauf über den Bildern für Premium-Look */
+.slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(29, 59, 43, 0.2), rgba(29, 59, 43, 0.6));
+    z-index: 1;
+}
+
+.slide-show {
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-show li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: simpleFade 12s infinite ease-in-out;
+}
+
+.slide-show li:nth-child(1) { animation-delay: 0s; opacity: 1; }
+.slide-show li:nth-child(2) { animation-delay: 4s; }
+.slide-show li:nth-child(3) { animation-delay: 8s; }
+
+@keyframes simpleFade {
+    0%, 100% { opacity: 0; }
+    8%, 33% { opacity: 1; } 
+    41% { opacity: 0; }
+}
+
+.slide-show img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   5. INTRO SEKTION (Zentrierter Titel am Boden)
+   ========================================== */
+.flex {
+    padding: 50px 50px;
+    background: #ffffff;
+}
+
+/* Der Hauptcontainer ordnet jetzt die Spalten und die zentrierte Box untereinander an */
+.company-info {
+    display: flex;
+    flex-direction: column; 
+    gap: 40px;
+    width: 100%;
+}
+
+/* Sorgt dafür, dass die beiden Vorstellungstexte sauber nebeneinander stehen */
+.intro-columns {
+    display: flex;
+    gap: 50px;
+}
+
+.intro-columns .left, 
+.intro-columns .right {
+    flex: 1;
+}
+
+h2.head {
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--iventa-dark-green);
+    margin-bottom: 15px;
+    font-weight: 700;
+    opacity: 0.85;
+}
+
+.intro-columns p {
+    color: #475569;
+    font-size: 10pt;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* ——— NEU: Der zentrierte Bereich ganz unten ——— */
+.job-header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Zentriert alle Elemente horizontal */
+    text-align: center;     /* Zentriert den Text im Element */
+    margin-top: 20px;       /* Schafft eleganten Abstand nach oben */
+    gap: 15px;              /* Gleichmäßiger Abstand zwischen Titel, Meta und Button */
+}
+
+h1.job-title {
+    font-size: 26pt;       /* Leicht vergrößert für maximalen Fokus */
+    color: var(--iventa-dark-green);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.job-meta {
+    display: inline-block;
+    background: var(--iventa-soft-bg);
+    color: var(--iventa-dark-green);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 9pt;
+    font-weight: 700;
+    border: 1px solid #e2e8f0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+/* Globale Anpassung für den oberen Button, damit er im Flex-Center nicht zerrreißt */
+.job-header-center .button {
+    display: inline-block;
+}
+
+.button a {
+    display: inline-block;
+    background: var(--iventa-dark-green);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 35px;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 9.5pt;
+    transition: all 0.3s ease;
+    border: 2px solid var(--iventa-dark-green);
+}
+
+.button a:hover {
+    transform: translateY(-2px);
+    background: var(--iventa-mint);
+    color: var(--iventa-dark-green);
+    border-color: var(--iventa-mint);
+    box-shadow: 0 10px 20px rgba(58, 242, 150, 0.2);
+}
+
+/* Update für Mobile-Ansicht */
+@media (max-width: 768px) {
+    .intro-columns {
+        flex-direction: column;
+        gap: 30px;
+    }
+    h1.job-title {
+        font-size: 20pt;
+    }
+}
+/* ==========================================
+   6. MAIN CONTENT (Dunkelgrüner Premium-Kontrast)
+   ========================================== */
+.content {
+    background-color: var(--iventa-dark-green); 
+    padding: 20px 0;
+}
+
+.content .flex {
+    background: transparent;
+    display: flex;
+    gap: 35px;
+    padding: 40px 50px;
+}
+
+.profil-aufgaben {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04); /* Dezent transparente Boxen */
+    padding: 40px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h2.subhead-body {
+    font-size: 14pt;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+/* Kleiner mintgrüner Akzentstrich unter den Überschriften */
+h2.subhead-body::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--iventa-mint);
+    border-radius: 2px;
+}
+
+.content ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+    font-size: 10pt;
+    color: rgba(255, 255, 255, 0.9);
+    list-style: none;
+}
+
+/* Stilvoller Pfeil in Mintgrün */
+.content ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--iventa-mint);
+    font-weight: bold;
+    font-size: 11pt;
+    top: -1px;
+}
+
+/* ==========================================
+   7. BENEFITS SECTION (Modernes Grid-Layout)
+   ========================================== */
+.darf-freuen {
+    padding: 60px 50px;
+    background-color: #ffffff;
+}
+
+.darf-freuen h2.subhead-body {
+    color: var(--iventa-dark-green);
+}
+
+.darf-freuen h2.subhead-body::after {
+    background-color: var(--iventa-dark-green);
+}
+
+.darf-freuen ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+    margin-top: 30px;
+}
+
+.darf-freuen ul li {
+    background: var(--iventa-soft-bg);
+    padding: 16px 20px 16px 40px;
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--iventa-mint);
+    font-size: 10pt;
+    color: var(--text-main);
+    font-weight: 600;
+    list-style: none;
+}
+
+/* Schickes Häkchen für die Benefits */
+.darf-freuen ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 16px;
+    color: var(--iventa-dark-green);
+    font-weight: bold;
+}
+
+/* ==========================================
+   8. DIRECT APPLY BANNER
+   ========================================== */
+.direct-apply {
+    padding: 35px 40px;
+    background: #eefdf5; /* Sehr softes Ivetna-Mint-Weiß */
+    border-left: 4px solid var(--iventa-mint);
+    margin: 0 50px 40px 50px;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.direct-apply h2.subhead-body {
+    color: var(--iventa-dark-green);
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+.direct-apply h2.subhead-body::after { content: none; }
+
+.direct-apply p {
+    font-size: 10pt;
+    color: #334155;
+}
+
+.direct-apply a {
+    color: var(--iventa-dark-green);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--iventa-mint);
+}
+
+/* ==========================================
+   9. CONTACT GRAPHIC BANNER
+   ========================================== */
+.contact-banner {
+    width: 100%;
+    max-height: 160px;
+    overflow: hidden;
+}
+
+.contact-banner img {
+    width: 100%;
+    height: 160px;
+    display: block;
+    object-fit: cover;
+}
+
+/* ==========================================
+   10. FOOTER STYLING (Mit Ansprechpartnerin)
+   ========================================== */
+#footer {
+    background-color: var(--iventa-dark-green);
+    color: #ffffff;
+    padding: 40px 50px;
+}
+
+.flex-footer {
+    display: flex;
+    align-items: center; /* Zentriert Bild, Text und Button vertikal zueinander */
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* ——— Spalte 1: Der Avatar (Elegantes rundes Bild) ——— */
+.footer-avatar {
+    flex-shrink: 0; /* Verhindert, dass das Bild gestaucht wird */
+}
+
+.footer-avatar img {
+    width: 120px;       /* Perfekte, harmonische Größe für den Footer */
+    height: 120px;
+    object-fit: cover;  /* Schneidet das Bild sauber zu */
+    border-radius: 50%; /* Macht das Bild kreisrund */
+    border: 3px solid var(--iventa-mint); /* Eleganter, dünner mintgrüner Rahmen ums Bild */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+/* ——— Spalte 2: Die Text-Informationen in der Mitte ——— */
+.footer-contact-info {
+    flex: 1; /* Nimmt den gesamten mittleren Platz ein */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-contact-info .contact-label {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--iventa-mint); /* "Deine Ansprechperson" leuchtet dezent in Mint */
+    font-weight: 700;
+}
+
+.footer-contact-info h3.contact-name {
+    font-size: 16pt;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 2px;
+}
+
+.footer-contact-info .company-name {
+    font-size: 10pt;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.footer-contact-info .location {
+    font-size: 9.5pt;
+    opacity: 0.7;
+    margin-bottom: 8px;
+}
+
+/* Die Links (E-Mail & Web) – Jetzt perfekt lesbar */
+.footer-links {
+    font-size: 10pt;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-links a {
+    color: #ffffff; /* Links in reinem, klarem Weiß */
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid var(--iventa-mint); /* Feine mintgrüne Unterstreichung */
+    transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.8;
+}
+
+/* ——— Spalte 3: Der Button ganz rechts ——— */
+.footer-cta-button {
+    flex-shrink: 0; /* Verhindert, dass der Button schmaler gezogen wird */
+}
+
+/* Weißer Kontrast-Button */
+.footer-cta-button .button a {
+    background: #ffffff;
+    color: var(--iventa-dark-green);
+    border-color: #ffffff;
+    white-space: nowrap; /* Verhindert Zeilenumbruch im Button */
+}
+
+.footer-cta-button .button a:hover {
+    background: var(--iventa-mint);
+    color: var(--iventa-dark-green);
+    border-color: var(--iventa-mint);
+}
+
+/* ——— Responsive Anpassung für Smartphones ——— */
+@media (max-width: 768px) {
+    .flex-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .footer-contact-info {
+        align-items: center;
+    }
+}
+
+/* ==========================================
+   11. RESPONSIVE DESIGN (SMARTPHONES)
+   ========================================== */
+@media (max-width: 768px) {
+    .company-info, 
+    .content .flex, 
+    .flex-footer,
+    .darf-freuen ul {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .flex-footer .right-cta {
+        text-align: left;
+    }
+    .logo, .flex, .content .flex, .darf-freuen, #footer {
+        padding: 40px 25px;
+    }
+    .direct-apply {
+        margin: 0 25px 30px 25px;
+    }
+    h1.job-title {
+        font-size: 20pt;
+    }
+}

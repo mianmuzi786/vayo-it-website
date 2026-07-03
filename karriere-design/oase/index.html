@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-TECH Karriere - Embedded Software Engineer (m/w/d)</title>
+    <style>
+        /* Modern CSS Reset & Variable Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --oase-deep-blue: #002F4B;   /* Deep premium ocean blue */
+            --oase-cyan: #00A3A6;        /* Iconic fresh OASE teal/cyan */
+            --oase-light-cyan: #E6F6F6;  /* Soft alert/badge background */
+            --bg-neutral: #F4F7F6;       /* Clean premium off-white */
+            --text-dark: #2C3E50;        /* Readable dark slate */
+            --text-muted: #627D98;       /* Sophisticated gray for details */
+            --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            
+            /* Radien für Placeholder-Logo */
+            --radius-md: 12px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-neutral);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        /* Container der Anzeige */
+        .job-card {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 47, 75, 0.05);
+            overflow: hidden;
+            border: 1px solid rgba(0, 47, 75, 0.05);
+        }
+
+        /* Header Bereich mit Hero-Bild-Struktur */
+        .job-header {
+            position: relative;
+            background: linear-gradient(135deg, var(--oase-deep-blue) 0%, #004B75 100%);
+            color: #ffffff;
+            padding: 60px 50px;
+            overflow: hidden;
+        }
+
+        /* Dekorative organische Welle im Hintergrund (Passend zum Thema Wasser) */
+        .job-header::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 163, 166, 0.15);
+            border-radius: 43% 57% 70% 30% / 45% 45% 55% 55%;
+            animation: wave-float 12s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes wave-float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .company-logo-container {
+            margin-bottom: 25px;
+        }
+
+        /* --- ANONYMISIERTES EMBEDDED MUSTER-LOGO --- */
+        .placeholder-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+        }
+
+        .logo-icon {
+            width: 34px;
+            height: 34px;
+            background-color: var(--oase-cyan);
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gear-core {
+            width: 10px;
+            height: 10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-name {
+            font-size: 16pt;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            line-height: 1;
+            font-style: italic;
+        }
+
+        .brand-subline {
+            font-size: 7.5pt;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.5px;
+            margin-top: 3px;
+        }
+
+        .job-title {
+            font-size: 24pt;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 700px;
+        }
+
+        /* Badges für Key Facts */
+        .badge-container {
+            display: block;
+            margin-top: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 9.5pt;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .badge.accent {
+            background: var(--oase-cyan);
+            border-color: var(--oase-cyan);
+        }
+
+        /* Hauptinhalt Layout */
+        .job-body {
+            padding: 50px;
+        }
+
+        .intro-text {
+            font-size: 11.5pt;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            font-weight: 400;
+            border-left: 4px solid var(--oase-cyan);
+            padding-left: 20px;
+        }
+
+        /* Das moderne 2-Spalten Grid */
+        .content-layout {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin-bottom: 40px;
+        }
+
+        .content-column {
+            display: table-cell;
+            width: 50%;
+            vertical-align: top;
+            padding-right: 30px;
+        }
+
+        .content-column:last-child {
+            padding-right: 0;
+            padding-left: 30px;
+            border-left: 1px solid #EAEFF2;
+        }
+
+        /* Elegante Überschriften mit linker Accent-Bar */
+        h2 {
+            font-size: 13.5pt;
+            color: var(--oase-deep-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-left: 3px solid var(--oase-cyan);
+            padding-left: 10px;
+        }
+
+        /* Stylische Listen */
+        ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 12px;
+            font-size: 10.5pt;
+            color: var(--text-dark);
+        }
+
+        /* Custom Checkmark/Bullet passend zum Brand */
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--oase-cyan);
+            font-weight: bold;
+            font-size: 11pt;
+            top: 0;
+        }
+
+        /* Unternehmens-Kacheln (Statistiken) */
+        .stats-grid {
+            display: block;
+            margin-top: 20px;
+            background: var(--bg-neutral);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .stat-item {
+            display: inline-block;
+            width: 46%;
+            margin: 2%;
+            vertical-align: top;
+        }
+
+        .stat-number {
+            font-size: 16pt;
+            font-weight: 700;
+            color: var(--oase-cyan);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 9.5pt;
+            color: var(--text-muted);
+        }
+
+        /* Footer & CTA Bereich */
+        .job-footer {
+            background: #F8FAFB;
+            border-top: 1px solid #EAEFF2;
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 11pt;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            font-size: 10pt;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-info strong {
+            color: var(--oase-deep-blue);
+        }
+
+        /* Der fließende Premium-Button */
+        .btn-apply {
+            display: inline-block;
+            background-color: var(--oase-cyan);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-size: 11pt;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 163, 166, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-apply:hover {
+            background-color: var(--oase-deep-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 47, 75, 0.2);
+        }
+
+        /* Responsive Anpassung für kleinere Screens */
+        @media (max-width: 768px) {
+            .content-column {
+                display: block;
+                width: 100%;
+                padding-right: 0;
+                padding-left: 0;
+                margin-bottom: 30px;
+            }
+            .content-column:last-child {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid #EAEFF2;
+                padding-top: 30px;
+            }
+            .job-header, .job-body, .job-footer {
+                padding: 30px 20px;
+            }
+            .job-title {
+                font-size: 20pt;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="job-card">
+        
+        <header class="job-header">
+            <div class="company-logo-container">
+                <!-- Eingebautes H-TECH Logo mit hellen Textfarben für den dunkelblauen Hintergrund -->
+                <div class="placeholder-logo">
+                    <div class="logo-icon">
+                        <span class="gear-core"></span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="brand-name">H-TECH</span>
+                        <span class="brand-subline">Ideen mit Zukunft.</span>
+                    </div>
+                </div>
+            </div>
+            <h1 class="job-title">Embedded Software Engineer (m/w/d)</h1>
+            
+            <div class="badge-container">
+                <span class="badge accent">Neu / 18.06.2026</span>
+                <span class="badge">Musterstadt</span>
+                <span class="badge">Vollzeit</span>
+                <span class="badge">Flexible Arbeitszeiten</span>
+                <span class="badge">IoT & Innovation</span>
+            </div>
+        </header>
+
+        <div class="job-body">
+            
+            <p class="intro-text">
+                Seit Jahrzehnten steht H-TECH für perfekte Momente im Bereich smarter Technologien. Wir sind ein international agierender Spezialist und Systemanbieter für innovative IoT-Lösungen, vernetzte Steuerungsarchitekturen sowie für intelligente Hardware-Ökosysteme, die das digitale Zusammenspiel moderner Komponenten auf einzigartige Weise vereinen.
+            </p>
+
+            <div class="content-layout">
+                
+                <div class="content-column">
+                    <h2>Das sind Ihre Aufgaben</h2>
+                    <ul>
+                        <li>Weiterentwicklung der Embedded Systeme für unsere Geschäftsbereiche Professional Business (Anlagensteuerungen) und Consumer Business (IoT).</li>
+                        <li>Evaluation und Integration von neuen Technologien, Standards und Sicherheitsanforderungen.</li>
+                        <li>Durchführung entwicklungsbegleitender Tests zur Qualitätssicherung.</li>
+                        <li>Enge Zusammenarbeit mit unserem App-Team bei der Spezifikation der Schnittstellen unserer IoT-Geräte (Illumination, Sensorik und intelligente Hardwarekomponenten).</li>
+                    </ul>
+
+                    <h2>Über uns</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">75 Jahre</span>
+                            <span class="stat-label">Erfahrung & Innovation</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">750+</span>
+                            <span class="stat-label">Mitarbeiter weltweit</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Global</span>
+                            <span class="stat-label">Standorte in Europa, Asien & USA</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Leidenschaft für Technologie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-column">
+                    <h2>Das bringen Sie mit</h2>
+                    <ul>
+                        <li>Erfolgreich abgeschlossenes Studium der Elektrotechnik, Informatik oder eine vergleichbare technische Qualifikation.</li>
+                        <li>Fundierte Berufserfahrung in der Entwicklung von Embedded Systemen.</li>
+                        <li>Sehr gute Programmierkenntnisse in <strong>C oder C++</strong>.</li>
+                        <li>Routinierter Umgang mit cloudbasierten Systemen, vorzugsweise Cloud-Architekturen im IoT-Umfeld.</li>
+                        <li>Kenntnisse in HTML, CSS, PHP, JavaScript und Linux sowie Erfahrung mit modernen Entwicklungstools und Repositories.</li>
+                        <li>Hands-on-Erfahrung bei Inbetriebnahme, Fehlersuche und Reparatur von Prototypen mit üblichen Messgeräten.</li>
+                        <li>Fließende Deutsch- und gute Englischkenntnisse sowie Bereitschaft zur Onsite-Präsenz am Standort.</li>
+                    </ul>
+
+                    <h2>Ihre Benefits bei uns</h2>
+                    <ul>
+                        <li>Spannende, zukunftsweisende IoT-Themen, die Sie selbstständig bearbeiten.</li>
+                        <li>Ein innovatives und agiles Umfeld mit flachen Hierarchien.</li>
+                        <li>Moderne Kommunikation über digitale Arbeitsplatzlösungen mit mobilen Arbeitsmöglichkeiten.</li>
+                        <li>Attraktive Zusatzangebote für Ihre persönliche Fitness sowie eine betriebliche Sozialberatung.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="job-footer">
+            <p class="footer-text">Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre aussagekräftige Bewerbung!</p>
+            
+            <div class="contact-info">
+                Ansprechpartner: <strong>H-TECH Recruiting Team</strong><br>
+                H-TECH Solutions GmbH & Co. KG · Musterstraße 12 · 12345 Musterstadt<br>
+                Tel: 01234/567-890 · E-Mail: <a href="#" style="color: var(--oase-cyan); text-decoration: none; font-weight: 600;">career@h-tech-example.com</a>
+            </div>
+
+            <a href="#" class="btn-apply">Jetzt direkt bewerben</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
