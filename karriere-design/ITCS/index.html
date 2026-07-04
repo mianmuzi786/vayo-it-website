@@ -66,6 +66,62 @@
     }
 
     /* ==========================================
+   MUSTER-LOGO (WHITE-LABEL PLATZHALTER)
+   ========================================== */
+.placeholder-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+}
+
+/* Das High-Tech/Zahnrad Icon */
+.logo-icon {
+    width: 34px;
+    height: 34px;
+    background-color: var(--handtmann-orange);
+    border-radius: 8px; /* Moderner App-Icon-Look */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kleiner stylischer Punkt in der Mitte des Icons */
+.gear-core {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+}
+
+/* Text-Styling */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-name {
+    font-size: 22pt;
+    font-weight: 800;
+    color: #1e293b; /* Das edle Anthrazit-Schwarz */
+    letter-spacing: 1.5px;
+    line-height: 1;
+    font-style: italic; /* Schräggestellt wie beim Original */
+}
+
+.brand-subline {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #475569; /* Ein dezentes Dunkelblau/Grau */
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+}
+
+
+    /* ==========================================
        4. HEADER & ROTATING DECO CIRCLE
        ========================================== */
     .header {
@@ -484,18 +540,27 @@
 </head>
 <body>
 
-        <!-- Zurück-Button zur Portfolio-Übersicht -->
-<a href="../" class="btn-back-to-portfolio">
-    <span class="arrow">←</span> Alle Designs ansehen
-</a>
-
+    <!-- Zurück-Button zur Portfolio-Übersicht -->
+    <a href="../" class="btn-back-to-portfolio">
+        <span class="arrow">←</span> Alle Designs ansehen
+    </a>
 
     <div class="outer-frame">
         
-        <!-- Logo Bereich -->
+        <!-- Logo Bereich (Anonymisiert) -->
         <div class="logo">
-            <a href="https://www.itsc.de/" target="_blank">
-                <img src="logo.svg" alt="ITSC Logo">
+            <a href="#" style="text-decoration: none;">
+                <div class="placeholder-logo">
+                    <!-- Ein modernes, abstraktes Icon aus purem CSS -->
+                    <div class="logo-icon">
+                        <span class="gear-core"></span>
+                    </div>
+                    <!-- Der fiktive Firmenname -->
+                    <div class="logo-text">
+                        <span class="brand-name">H-TECH</span>
+                        <span class="brand-subline">Ideen mit Zukunft.</span>
+                    </div>
+                </div>
             </a>
         </div>
 
@@ -505,38 +570,38 @@
                 <img style="opacity: 0;" src="slide1.jpg" alt="Slider Base">
                 <ul class="slide-show">
                     <li>
-                        <span><img src="slide1.jpg" alt="Mitarbeiter beim ITSC 1"></span>
+                        <span><img src="slide1.jpg" alt="Mitarbeiter beim Team 1"></span>
                     </li>
                     <li>
-                        <span><img src="slide2.jpg" alt="Mitarbeiter beim ITSC 2"></span>
+                        <span><img src="slide2.jpg" alt="Mitarbeiter beim Team 2"></span>
                     </li>
                     <li>
-                        <span><img src="slide3.jpg" alt="Mitarbeiter beim ITSC 3"></span>
+                        <span><img src="slide3.jpg" alt="Mitarbeiter beim Team 3"></span>
                     </li>
                 </ul>
             </div>
         </header>
 
-        <!-- Intro Sektion (Willkommen & Team) -->
+        <!-- Intro Sektion (Willkommen & Team - Anonymisiert) -->
         <div class="flex">
             <main class="company-info">
                 <div class="left">
-                    <h2 class="head">Willkommen bei ITSC</h2>
-                    <p>Wir gestalten die digitale Zukunft des Gesundheitswesens und entwickeln immer wieder einzigartige innovative Lösungen für unsere Kunden, die gesetzlichen Krankenversicherungen. Dieser digitale Pioniergeist macht uns zu einem führenden Dienstleistungsunternehmen in der Gesundheitsbranche. Bei uns stehen die Ideen und Persönlichkeiten unserer über 350 Mitarbeitenden an erster Stelle. Wir sind überzeugt: Wenn du machst, was du liebst, machst du es richtig gut.</p>
+                    <h2 class="head">Willkommen bei H-TECH</h2>
+                    <p>Wir gestalten die digitale Zukunft von IT-Infrastrukturen und entwickeln immer wieder einzigartige innovative Lösungen für unsere Partner. Dieser digitale Pioniergeist macht uns zu einem führenden Dienstleistungsunternehmen in der Technologiebranche. Bei uns stehen die Ideen und Persönlichkeiten unserer über 350 Mitarbeitenden an erster Stelle. Wir sind überzeugt: Wenn du machst, was du liebst, machst du es richtig gut.</p>
                 </div>
                 
                 <div class="right">
                     <h2 class="head">Join our team</h2>
-                    <p>Der Zusammenhalt der Mitarbeitenden im ITSC, die Hilfsbereitschaft jedes einzelnen Mitarbeitenden und die Freude über Teamerfolge zeichnen uns aus. Zum Team Spirit gehört das Teilen von Wissen ebenso wie die Akzeptanz für den einzelnen Menschen und die Vielfalt der Persönlichkeiten innerhalb unseres Unternehmens. Unser Team Spirit entsteht aus der Loyalität aller zu unseren Kunden und Gesellschaftern, zum ITSC als Unternehmen, zum Team sowie unserer Führungskräfte zu ihren Mitarbeitenden.</p>
+                    <p>Der Zusammenhalt in unseren Projekten, die Hilfsbereitschaft jedes einzelnen Teammitglieds und die Freude über gemeinsame Erfolge zeichnen uns aus. Zum Team Spirit gehört das Teilen von Wissen ebenso wie die Akzeptanz für den einzelnen Menschen und die Vielfalt der Persönlichkeiten innerhalb unseres Unternehmens. Unser Erfolg entsteht aus der Loyalität aller zu unseren Zielen und Projekten.</p>
                     
                     <h1 class="job-title">Senior IT-Projektleiter und Teamleiter (m/w/d)</h1>
                     
                     <p class="job-meta">
-                        Hannover | 21.06.2026 | Vollzeit | unbefristet
+                        Musterstadt | 21.06.2026 | Vollzeit | unbefristet
                     </p>
                     
                     <div class="button">
-                        <a href="mailto:jobs@itsc.de" target="_blank">Jetzt Bewerben</a>
+                        <a href="#" target="_blank">Jetzt Bewerben</a>
                     </div>
                 </div>
             </main>
@@ -556,7 +621,7 @@
                             <li>Sehr gute betriebswirtschaftliche Kenntnisse</li>                        
                             <li>Idealerweise erste Führungserfahrung</li>
                             <li>Ganzheitliches und unternehmerisches Denken sowie die Fähigkeit, kreative Lösungen zu schaffen</li>
-                            <li>Sicheres Auftreten und Präsentationserfahrung, um das Projekt innerhalb verschiedener Kontexte (intern und extern) darzustellen</li>
+                            <li>Sicheres Auftreten und Präsentationserfahrung, um Projekte innerhalb verschiedener Kontexte professionell darzustellen</li>
                             <li>Bereitschaft zu gelegentlichen Dienstreisen</li>
                         </ul>
                     </div>
@@ -568,10 +633,10 @@
                         <h2 class="subhead-body">Deine Aufgaben bei uns:</h2>
                         <ul>
                             <li>Als Führungskraft übernimmst du die fachliche Verantwortung für das gesamte Team Project Services und bist erste Ansprechperson in fachlichen und persönlichen Fragestellungen sowie für die persönliche Weiterentwicklung deiner Mitarbeitenden</li>
-                            <li>Du übernimmst die Kapazitäts- und Einsatzplanung des Teams, dabei behältst du das Projekt-Portfolio und die Anforderungen unserer Kunden im Blick</li>
+                            <li>Du übernimmst die Kapazitäts- und Einsatzplanung des Teams, dabei behältst du das Projekt-Portfolio und die Anforderungen unserer Partner im Blick</li>
                             <li>Du leitest komplexe Projekte mit Schwerpunkt IT-Infrastruktur und neuen Services im Zuge der digitalen Transformation nach klassischen und agilen Methoden</li>
-                            <li>Du übernimmst für die Projekte die Gesamtverantwortung von der Auftragsklärung, Machbarkeit, Risikobewertung, Business Case, Steuerung, Gremienmanagement und Kommunikation bis zur Abnahme</li>
-                            <li>Zwischen Kunden, Projektteam und ggf. externen Dienstleistern fungierst du als professionelle Schnittstelle</li>
+                            <li>Du übernimmst für die Projekte die Gesamtverantwortung von der Auftragsklärung, Machbarkeit, Risikobewertung und Steuerung bis zur finalen Abnahme</li>
+                            <li>Zwischen Partnern, Projektteam und ggf. externen Dienstleistern fungierst du als professionelle Schnittstelle</li>
                             <li>Du führst Projektteams und managest interne und externe Stakeholder</li>
                             <li>An der strategischen Weiterentwicklung des Unternehmens in Bezug auf Projekte wirkst du ebenfalls mit</li>
                         </ul>
@@ -584,17 +649,17 @@
         <section class="darf-freuen">
             <h2 class="subhead-body">Darauf kannst du dich freuen:</h2>
             <ul>
-                <li>Große Gestaltungsspielräume und die Möglichkeit mit deinen Ideen zu einer nachhaltigen Verbesserung des Gesundheitswesens beizutragen.</li>
-                <li>Ein motiviertes und offenes Team sowie regelmäßige ITSC-Events</li>
-                <li>Professionelles Onboarding begleitet durch Paten für einen guten Start im ITSC</li>
-                <li>Gelebte Work-Life-Balance durch flexible Arbeitszeitmodelle (Gleitzeit ohne Kernarbeitszeit, Freizeitausgleich, Teilzeitmöglichkeiten, Home-Office)</li>
-                <li>Ein regelmäßiges Angebot im Rahmen des Betrieblichen Gesundheitsmanagements (z.B. Hansefit)</li>
-                <li>Seminarangebote (intern und extern) zu deiner persönlichen und fachlichen Weiterentwicklung</li>
-                <li>30 Tage Jahresurlaub, zusätzlich frei an Heiligabend und Silvester</li>
-                <li>Attraktive betriebliche Altersvorsorge mit Arbeitgeberzuschuss</li>
-                <li>Erweiterte Entgeltfortzahlung im Krankheitsfall</li>
-                <li>Attraktive Leasingangebote für den privaten Gebrauch (z. B. Job-Rad) und interessante Rabattvorteile bei über 800 Top-Marken (Corporate Benefits)</li>
-                <li>Bis zu 50 % Zuschuss zum Deutschlandticket und firmeneigene Parkplätze</li>
+                <li>Große Gestaltungsspielräume und die Möglichkeit, mit deinen Ideen zu einer nachhaltigen Verbesserung digitaler Prozesse beizutragen.</li>
+                <li>Ein motiviertes und offenes Team sowie regelmäßige Teamevents.</li>
+                <li>Professionelles Onboarding begleitet durch Paten für einen optimalen Start im Unternehmen.</li>
+                <li>Gelebte Work-Life-Balance durch flexible Arbeitszeitmodelle (Gleitzeit ohne Kernarbeitszeit, Freizeitausgleich, Teilzeitmöglichkeiten, Home-Office).</li>
+                <li>Ein regelmäßiges Angebot im Rahmen des Betrieblichen Gesundheitsmanagements sowie Sport- und Fitnesskooperationen.</li>
+                <li>Seminarangebote (intern und extern) zu deiner persönlichen und fachlichen Weiterentwicklung.</li>
+                <li>30 Tage Jahresurlaub, zusätzlich arbeitsfrei an Heiligabend und Silvester.</li>
+                <li>Attraktive betriebliche Altersvorsorge mit Arbeitgeberzuschuss.</li>
+                <li>Erweiterte Entgeltfortzahlung im Krankheitsfall.</li>
+                <li>Attraktive Leasingangebote für den privaten Gebrauch (z. B. Job-Rad) und interessante Rabattvorteile bei namhaften Top-Marken.</li>
+                <li>Zuschüsse zum öffentlichen Personennahverkehr und firmeneigene Parkplätze.</li>
             </ul>
         </section>
 
@@ -602,9 +667,9 @@
         <section class="direct-apply">
             <h2 class="subhead-body">Bewirb dich direkt</h2>
             <p>
-                Du willst Teil des ITSC-Teams werden? Dann bewirb dich über unsere Homepage 
-                (<a href="https://www.itsc.de/karriere/detail/senior-it-projektleiter-und-teamleiter-m-w-d" target="_blank">Bewerbungsportal</a>) 
-                unter Angabe Deiner Gehaltsvorstellung und Deiner Verfügbarkeit – wir freuen uns darauf dich kennenzulernen!
+                Du willst Teil unseres IT-Teams werden? Dann bewirb dich über unsere Homepage 
+                (<a href="#" target="_blank">Bewerbungsportal</a>) 
+                unter Angabe deiner Gehaltsvorstellung und deiner Verfügbarkeit – wir freuen uns darauf, dich kennenzulernen!
             </p>
         </section>
 
@@ -613,7 +678,7 @@
             <img src="kontakt.jpg" alt="Kontaktieren Sie uns">
         </div>
 
-        <!-- Footer Bereich -->
+        <!-- Footer Bereich (Anonymisiert) -->
         <footer id="footer">
             <div class="flex-footer">
                 <div class="left">
@@ -621,20 +686,19 @@
                     <p>Bewirb dich online in unserem Bewerbungsportal.</p>
                     
                     <div class="address-block">
-                        <strong>ITSC GmbH</strong>
-                        <p>Rotenburger Str. 24</p>
-                        <p>30659 Hannover</p>
+                        <strong>H-TECH Solutions GmbH & Co. KG</strong>
+                        <p>Musterstraße 12</p>
+                        <p>12345 Musterstadt</p>
                     </div>
                     
                     <p class="footer-links">
-                        E-Mail: <a href="mailto:jobs@itsc.de">jobs@itsc.de</a> | 
-                        Web: <a href="https://www.itsc.de/" target="_blank">www.itsc.de</a>
+                        Web: <a href="#" target="_blank">www.h-tech-example.com</a>
                     </p>
                 </div>
                 
                 <div class="right-cta">
                     <div class="button">
-                        <a href="mailto:jobs@itsc.de" target="_blank">Jetzt Bewerben</a>
+                        <a href="#" target="_blank">Jetzt Bewerben</a>
                     </div>
                 </div>
             </div>
