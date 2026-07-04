@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITSC Jobbörse - Senior IT-Projektleiter und Teamleiter (m/w/d)</title>
+    <style>
+    /* ==========================================
+       1. MODERN CSS RESET & GLOBAL VARIABLES
+       ========================================== */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --itsc-blue: #003366;       /* Tiefes, vertrauensvolles IT-Blau */
+        --itsc-cyan: #00b4d8;       /* Frisches, digitales Cyan für Highlights */
+        --itsc-dark-bg: #002244;    /* Edles Dunkelblau für den Content-Hintergrund (Kontrast) */
+        --bg-neutral: #f8fafc;      /* Softes Off-White/Eisblau für Karten & Flächen */
+        --text-main: #1e293b;       /* Moderner Schieferton für beste Lesbarkeit */
+        --text-muted: #64748b;      /* Stilvolles Grau für Metadaten */
+        --card-bg: #ffffff;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --radius-sm: 8px;
+        --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+        font-family: var(--font-family);
+        background-color: #e2e8f0;
+        color: var(--text-main);
+        line-height: 1.6;
+        padding: 40px 20px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ==========================================
+       2. OUTER FRAME (Auf 900px optimiert)
+       ========================================== */
+    .outer-frame {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: var(--card-bg);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 20px 40px rgba(0, 51, 102, 0.08);
+        overflow: hidden;
+        border: 1px solid rgba(0, 51, 102, 0.04);
+    }
+
+    /* ==========================================
+       3. LOGO SECTION
+       ========================================== */
+    .logo {
+        padding: 25px 50px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 45px;
+        width: auto;
+    }
+
+    /* ==========================================
+       4. HEADER & ROTATING DECO CIRCLE
+       ========================================== */
+    .header {
+        position: relative;
+        background-color: var(--itsc-blue);
+        overflow: hidden;
+        height: 300px;
+    }
+
+    /* Der rotierende "Rotate"-Kreis im Header */
+    .deco-circle {
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 280px;
+        height: 280px;
+        border: 2px dashed rgba(0, 180, 216, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: rotateCircle 25s infinite linear;
+        z-index: 2;
+    }
+
+    @keyframes rotateCircle {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* --- SLIDER STYLING (Gestochen scharf) --- */
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slider::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 51, 102, 0.15), rgba(0, 31, 66, 0.45));
+        z-index: 1;
+    }
+
+    .slide-show {
+        list-style: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide-show li {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        animation: simpleFade 12s infinite ease-in-out;
+    }
+
+    .slide-show li:nth-child(1) { animation-delay: 0s; opacity: 1; }
+    .slide-show li:nth-child(2) { animation-delay: 4s; }
+    .slide-show li:nth-child(3) { animation-delay: 8s; }
+
+    @keyframes simpleFade {
+        0%, 100% { opacity: 0; }
+        8%, 33% { opacity: 1; } 
+        41% { opacity: 0; }
+    }
+
+    .slide-show img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* ==========================================
+       5. INTRO SEKTION (Zentriert gegen "Löcher")
+       ========================================== */
+    .flex {
+        padding: 40px 50px;
+        background: var(--card-bg);
+    }
+
+    .company-info {
+        display: flex;
+        gap: 40px;
+        align-items: center; /* Korrektur Anhang 1: Zentriert den linken Block vertikal */
+    }
+
+    .company-info .left, 
+    .company-info .right {
+        flex: 1;
+    }
+
+    h1.job-title {
+        font-size: 22pt;
+        color: var(--itsc-blue);
+        line-height: 1.2;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    h2.head {
+        font-size: 12pt;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--itsc-cyan);
+        margin-bottom: 12px;
+        font-weight: 700;
+    }
+
+    .company-info p {
+        color: var(--text-main);
+        font-size: 10.5pt;
+        text-align: justify;
+    }
+
+    .job-meta {
+        display: inline-block;
+        background: #f1f5f9;
+        color: var(--itsc-blue);
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 9.5pt;
+        font-weight: 600;
+        margin-bottom: 20px;
+        border: 1px solid #e2e8f0;
+    }
+
+    /* --- GLOBALE BUTTONS --- */
+    .button a {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--itsc-cyan) 0%, #0096b5 100%);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 30px;
+        font-weight: 700;
+        border-radius: var(--radius-md);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 10pt;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 180, 216, 0.25);
+    }
+
+    .button a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
+        background: linear-gradient(135deg, #0096b5 0%, var(--itsc-blue) 100%);
+    }
+
+    /* ==========================================
+       6. MAIN CONTENT (Boxen mit gleicher Höhe & Kontrast)
+       ========================================== */
+    .content {
+        background-color: var(--itsc-dark-bg); /* Dunkelblau für eleganten Kontrast */
+        border-top: 1px solid #001122;
+        border-bottom: 1px solid #001122;
+    }
+
+    .content .flex {
+        background: transparent;
+        display: flex;
+        gap: 30px;
+        align-items: stretch; /* Korrektur Anhang 2: Zwingt beide Boxen auf exakt dieselbe Höhe */
+    }
+
+    .profil-aufgaben {
+        flex: 1;
+        background: var(--bg-neutral); /* Softes Eisblau/Off-White als Box-Hintergrund */
+        padding: 35px;
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Tieferer Schatten für schwebenden Look */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profil-aufgaben .liquidDesign {
+        flex: 1; /* Hält den inneren Content synchron */
+    }
+
+    h2.subhead-body {
+        font-size: 13pt;
+        color: var(--itsc-blue);
+        margin-bottom: 20px;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 6px;
+    }
+
+    h2.subhead-body::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 35px;
+        height: 3px;
+        background-color: var(--itsc-cyan);
+        border-radius: 2px;
+    }
+
+    ul li {
+        position: relative;
+        padding-left: 22px;
+        margin-bottom: 12px;
+        font-size: 10pt;
+        color: #334155;
+        list-style: none;
+    }
+
+    ul li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--itsc-cyan);
+        font-weight: bold;
+        font-size: 10.5pt;
+    }
+
+    /* ==========================================
+       7. BENEFITS SECTION
+       ========================================== */
+    .darf-freuen {
+        padding: 40px 50px;
+        background-color: #ffffff;
+    }
+
+    .darf-freuen ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px 30px;
+        margin-top: 20px;
+    }
+
+    .darf-freuen ul li {
+        background: #f8fafc;
+        padding: 12px 15px 12px 35px;
+        border-radius: var(--radius-sm);
+        border-left: 3px solid var(--itsc-cyan);
+        font-size: 10pt;
+        margin-bottom: 0;
+    }
+
+    .darf-freuen ul li::before {
+        content: "✓";
+        left: 12px;
+        color: var(--itsc-cyan);
+    }
+
+    /* ==========================================
+       8. DIRECT APPLY BANNER
+       ========================================== */
+    .direct-apply {
+        padding: 30px;
+        background: #f0fdfa;
+        border-left: 4px solid #0d9488;
+        margin: 0 50px 35px 50px;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .direct-apply p {
+        font-size: 10pt;
+        margin-top: 8px;
+    }
+
+    .direct-apply a {
+        color: var(--itsc-blue);
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 2px solid rgba(0, 51, 102, 0.2);
+    }
+
+    /* ==========================================
+       9. CONTACT GRAPHIC BANNER (Kompakt)
+       ========================================== */
+    .contact-banner {
+        width: 100%;
+        max-height: 160px;
+        overflow: hidden;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .contact-banner img {
+        width: 100%;
+        height: 160px;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* ==========================================
+       10. FOOTER STYLING
+       ========================================== */
+    #footer {
+        background-color: var(--itsc-blue);
+        color: #ffffff;
+        padding: 40px 50px;
+    }
+
+    .flex-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .flex-footer .left {
+        flex: 2;
+    }
+
+    .flex-footer .right-cta {
+        flex: 1;
+        text-align: right;
+    }
+
+    h3.subhead {
+        font-size: 14pt;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .address-block {
+        margin: 15px 0;
+        font-size: 10pt;
+        opacity: 0.9;
+    }
+
+    .footer-links {
+        font-size: 10pt;
+        opacity: 0.9;
+    }
+
+    .footer-links a {
+        color: var(--itsc-cyan);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .flex-footer .button a {
+        background: #ffffff;
+        color: var(--itsc-blue);
+    }
+
+    .flex-footer .button a:hover {
+        background: var(--itsc-cyan);
+        color: #ffffff;
+    }
+
+    /* ==========================================
+       11. RESPONSIVE FALLBACK (MOBILE)
+       ========================================== */
+    @media (max-width: 768px) {
+        .company-info, 
+        .content .flex, 
+        .flex-footer,
+        .darf-freuen ul {
+            flex-direction: column;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .flex-footer .right-cta {
+            text-align: left;
+        }
+        .logo, .flex, .content .flex, .darf-freuen, #footer {
+            padding: 30px 20px;
+        }
+        .direct-apply {
+            margin: 0 20px 25px 20px;
+        }
+    }
+
+    /* ==========================================
+   ZURÜCK-BUTTON ZUM PORTFOLIO
+   ========================================== */
+.btn-back-to-portfolio {
+    display: inline-block;
+    margin: 20px 0 10px 20px; /* Abstand nach außen */
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #1e293b; /* Elegantes Anthrazit */
+    text-decoration: none;
+    font-size: 13pt;
+    font-weight: 800;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover-Effekt: Button hebt sich leicht ab */
+.btn-back-to-portfolio:hover {
+    background-color: #f8fafc;
+    color: #0f172a;
+    border-color: #cbd5e1;
+    transform: translateX(-3px); /* Bewegt den Button minimal nach links */
+}
+
+/* Der Pfeil bekommt eine kleine Animation */
+.btn-back-to-portfolio .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-right: 4px;
+}
+
+.btn-back-to-portfolio:hover .arrow {
+    transform: translateX(-2px); /* Schiebt nur den Pfeil beim Hovern weiter nach links */
+}
+</style>
+</head>
+<body>
+
+        <!-- Zurück-Button zur Portfolio-Übersicht -->
+<a href="../" class="btn-back-to-portfolio">
+    <span class="arrow">←</span> Alle Designs ansehen
+</a>
+
+
+    <div class="outer-frame">
+        
+        <!-- Logo Bereich -->
+        <div class="logo">
+            <a href="https://www.itsc.de/" target="_blank">
+                <img src="logo.svg" alt="ITSC Logo">
+            </a>
+        </div>
+
+        <!-- Header / Slider Bereich -->
+        <header class="header">
+            <div class="slider">
+                <img style="opacity: 0;" src="slide1.jpg" alt="Slider Base">
+                <ul class="slide-show">
+                    <li>
+                        <span><img src="slide1.jpg" alt="Mitarbeiter beim ITSC 1"></span>
+                    </li>
+                    <li>
+                        <span><img src="slide2.jpg" alt="Mitarbeiter beim ITSC 2"></span>
+                    </li>
+                    <li>
+                        <span><img src="slide3.jpg" alt="Mitarbeiter beim ITSC 3"></span>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- Intro Sektion (Willkommen & Team) -->
+        <div class="flex">
+            <main class="company-info">
+                <div class="left">
+                    <h2 class="head">Willkommen bei ITSC</h2>
+                    <p>Wir gestalten die digitale Zukunft des Gesundheitswesens und entwickeln immer wieder einzigartige innovative Lösungen für unsere Kunden, die gesetzlichen Krankenversicherungen. Dieser digitale Pioniergeist macht uns zu einem führenden Dienstleistungsunternehmen in der Gesundheitsbranche. Bei uns stehen die Ideen und Persönlichkeiten unserer über 350 Mitarbeitenden an erster Stelle. Wir sind überzeugt: Wenn du machst, was du liebst, machst du es richtig gut.</p>
+                </div>
+                
+                <div class="right">
+                    <h2 class="head">Join our team</h2>
+                    <p>Der Zusammenhalt der Mitarbeitenden im ITSC, die Hilfsbereitschaft jedes einzelnen Mitarbeitenden und die Freude über Teamerfolge zeichnen uns aus. Zum Team Spirit gehört das Teilen von Wissen ebenso wie die Akzeptanz für den einzelnen Menschen und die Vielfalt der Persönlichkeiten innerhalb unseres Unternehmens. Unser Team Spirit entsteht aus der Loyalität aller zu unseren Kunden und Gesellschaftern, zum ITSC als Unternehmen, zum Team sowie unserer Führungskräfte zu ihren Mitarbeitenden.</p>
+                    
+                    <h1 class="job-title">Senior IT-Projektleiter und Teamleiter (m/w/d)</h1>
+                    
+                    <p class="job-meta">
+                        Hannover | 21.06.2026 | Vollzeit | unbefristet
+                    </p>
+                    
+                    <div class="button">
+                        <a href="mailto:jobs@itsc.de" target="_blank">Jetzt Bewerben</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Hauptinhalt: Qualifikationen & Aufgaben -->
+        <div class="content">
+            <div class="flex">
+                <!-- Qualifikationen -->
+                <section class="profil-aufgaben">
+                    <div class="liquidDesign">
+                        <h2 class="subhead-body">Deine Qualifikationen:</h2>
+                        <ul>
+                            <li>Erfolgreich abgeschlossenes Studium oder Ausbildung im IT-Umfeld</li>
+                            <li>Mehrjährige Erfahrung in der Steuerung von IT-Projekten mit Kundenbezug</li>
+                            <li>Fundierte Kenntnisse im klassischen und agilen Projektmanagement sowie IT-Prozessmanagement (z.B. ITIL)</li>
+                            <li>Sehr gute betriebswirtschaftliche Kenntnisse</li>                        
+                            <li>Idealerweise erste Führungserfahrung</li>
+                            <li>Ganzheitliches und unternehmerisches Denken sowie die Fähigkeit, kreative Lösungen zu schaffen</li>
+                            <li>Sicheres Auftreten und Präsentationserfahrung, um das Projekt innerhalb verschiedener Kontexte (intern und extern) darzustellen</li>
+                            <li>Bereitschaft zu gelegentlichen Dienstreisen</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- Aufgaben -->
+                <section class="profil-aufgaben">
+                    <div class="liquidDesign">
+                        <h2 class="subhead-body">Deine Aufgaben bei uns:</h2>
+                        <ul>
+                            <li>Als Führungskraft übernimmst du die fachliche Verantwortung für das gesamte Team Project Services und bist erste Ansprechperson in fachlichen und persönlichen Fragestellungen sowie für die persönliche Weiterentwicklung deiner Mitarbeitenden</li>
+                            <li>Du übernimmst die Kapazitäts- und Einsatzplanung des Teams, dabei behältst du das Projekt-Portfolio und die Anforderungen unserer Kunden im Blick</li>
+                            <li>Du leitest komplexe Projekte mit Schwerpunkt IT-Infrastruktur und neuen Services im Zuge der digitalen Transformation nach klassischen und agilen Methoden</li>
+                            <li>Du übernimmst für die Projekte die Gesamtverantwortung von der Auftragsklärung, Machbarkeit, Risikobewertung, Business Case, Steuerung, Gremienmanagement und Kommunikation bis zur Abnahme</li>
+                            <li>Zwischen Kunden, Projektteam und ggf. externen Dienstleistern fungierst du als professionelle Schnittstelle</li>
+                            <li>Du führst Projektteams und managest interne und externe Stakeholder</li>
+                            <li>An der strategischen Weiterentwicklung des Unternehmens in Bezug auf Projekte wirkst du ebenfalls mit</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Benefits Bereich -->
+        <section class="darf-freuen">
+            <h2 class="subhead-body">Darauf kannst du dich freuen:</h2>
+            <ul>
+                <li>Große Gestaltungsspielräume und die Möglichkeit mit deinen Ideen zu einer nachhaltigen Verbesserung des Gesundheitswesens beizutragen.</li>
+                <li>Ein motiviertes und offenes Team sowie regelmäßige ITSC-Events</li>
+                <li>Professionelles Onboarding begleitet durch Paten für einen guten Start im ITSC</li>
+                <li>Gelebte Work-Life-Balance durch flexible Arbeitszeitmodelle (Gleitzeit ohne Kernarbeitszeit, Freizeitausgleich, Teilzeitmöglichkeiten, Home-Office)</li>
+                <li>Ein regelmäßiges Angebot im Rahmen des Betrieblichen Gesundheitsmanagements (z.B. Hansefit)</li>
+                <li>Seminarangebote (intern und extern) zu deiner persönlichen und fachlichen Weiterentwicklung</li>
+                <li>30 Tage Jahresurlaub, zusätzlich frei an Heiligabend und Silvester</li>
+                <li>Attraktive betriebliche Altersvorsorge mit Arbeitgeberzuschuss</li>
+                <li>Erweiterte Entgeltfortzahlung im Krankheitsfall</li>
+                <li>Attraktive Leasingangebote für den privaten Gebrauch (z. B. Job-Rad) und interessante Rabattvorteile bei über 800 Top-Marken (Corporate Benefits)</li>
+                <li>Bis zu 50 % Zuschuss zum Deutschlandticket und firmeneigene Parkplätze</li>
+            </ul>
+        </section>
+
+        <!-- Aufruf zur Bewerbung -->
+        <section class="direct-apply">
+            <h2 class="subhead-body">Bewirb dich direkt</h2>
+            <p>
+                Du willst Teil des ITSC-Teams werden? Dann bewirb dich über unsere Homepage 
+                (<a href="https://www.itsc.de/karriere/detail/senior-it-projektleiter-und-teamleiter-m-w-d" target="_blank">Bewerbungsportal</a>) 
+                unter Angabe Deiner Gehaltsvorstellung und Deiner Verfügbarkeit – wir freuen uns darauf dich kennenzulernen!
+            </p>
+        </section>
+
+        <!-- Kontaktgrafik -->
+        <div class="contact-banner">
+            <img src="kontakt.jpg" alt="Kontaktieren Sie uns">
+        </div>
+
+        <!-- Footer Bereich -->
+        <footer id="footer">
+            <div class="flex-footer">
+                <div class="left">
+                    <h3 class="subhead">Wir freuen uns, dich kennenzulernen</h3>
+                    <p>Bewirb dich online in unserem Bewerbungsportal.</p>
+                    
+                    <div class="address-block">
+                        <strong>ITSC GmbH</strong>
+                        <p>Rotenburger Str. 24</p>
+                        <p>30659 Hannover</p>
+                    </div>
+                    
+                    <p class="footer-links">
+                        E-Mail: <a href="mailto:jobs@itsc.de">jobs@itsc.de</a> | 
+                        Web: <a href="https://www.itsc.de/" target="_blank">www.itsc.de</a>
+                    </p>
+                </div>
+                
+                <div class="right-cta">
+                    <div class="button">
+                        <a href="mailto:jobs@itsc.de" target="_blank">Jetzt Bewerben</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

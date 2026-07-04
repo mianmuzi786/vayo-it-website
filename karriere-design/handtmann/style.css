@@ -580,3 +580,40 @@ box-shadow: 0 10px 20px rgba(230,95, 15, 0.3);
     margin: 0;
 }
 }
+
+/* ==========================================
+   ZURÜCK-BUTTON ZUM PORTFOLIO
+   ========================================== */
+.btn-back-to-portfolio {
+    display: inline-block;
+    margin: 20px 0 10px 20px; /* Abstand nach außen */
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #1e293b; /* Elegantes Anthrazit */
+    text-decoration: none;
+    font-size: 13pt;
+    font-weight: 800;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover-Effekt: Button hebt sich leicht ab */
+.btn-back-to-portfolio:hover {
+    background-color: #f8fafc;
+    color: #0f172a;
+    border-color: #cbd5e1;
+    transform: translateX(-3px); /* Bewegt den Button minimal nach links */
+}
+
+/* Der Pfeil bekommt eine kleine Animation */
+.btn-back-to-portfolio .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-right: 4px;
+}
+
+.btn-back-to-portfolio:hover .arrow {
+    transform: translateX(-2px); /* Schiebt nur den Pfeil beim Hovern weiter nach links */
+}
