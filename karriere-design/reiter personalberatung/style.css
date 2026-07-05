@@ -1,0 +1,446 @@
+/* ======================================
+   1. VARIABLES & RESET
+   ======================================*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --reiter-blue: #035fa5; /* Das typische Blau der Personalberatung */
+    --reiter-gray: #5f6368;
+    --card-bg: #ffffff;
+    --radius-lg: 16px;
+    --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    --text-main: #2c3e50;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #cbd5e1;
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ======================================
+   2. MAIN CONTAINER (OUTER FRAME)
+   ======================================*/
+.outer-frame {
+    max-width: 950px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Schneidet die Ecken des Bildes oben sauber ab */
+    border: 5px solid var(--reiter-blue);
+}
+
+        /* ==========================================
+       3. LOGO SECTION
+       ========================================== */
+    .logo {
+        padding: 5px 5px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo img {
+        height: 45px;
+        width: auto;
+    }
+
+    /* ==========================================
+   MUSTER-LOGO (WHITE-LABEL PLATZHALTER)
+   ========================================== */
+.placeholder-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+}
+
+/* Das High-Tech/Zahnrad Icon */
+.logo-icon {
+    width: 34px;
+    height: 34px;
+    background-color: var(--handtmann-orange);
+    border-radius: 8px; /* Moderner App-Icon-Look */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kleiner stylischer Punkt in der Mitte des Icons */
+.gear-core {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+}
+
+/* Text-Styling */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-name {
+    font-size: 30pt;
+    font-weight: 800;
+    color: #1e293b; /* Das edle Anthrazit-Schwarz */
+    letter-spacing: 1.5px;
+    line-height: 1;
+    font-style: italic; /* Schräggestellt wie beim Original */
+}
+
+.brand-subline {
+    font-size: 15pt;
+    font-weight: 600;
+    color: #475569; /* Ein dezentes Dunkelblau/Grau */
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+}
+
+
+
+
+/* ======================================
+   3. HEADER SECTION
+   ======================================*/
+.job-header {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* Weißer Logo-Bereich ganz oben */
+.company-logo-container {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center; /* Zentriert das Logo */
+    align-items: center;
+}
+
+.company-logo-container .logo {
+    max-height: 90px;
+    width: auto;
+    display: block;
+}
+
+/* Bild-Container in der Mitte */
+.header-image-container {
+    width: 100%;
+    display: block;
+    line-height: 0; /* Verhindert weißen Spalt unter dem Bild */
+}
+
+.header-image-container .header {
+    width: 100%;
+    height: 250px;
+    display: block;
+    padding: 20px 20px 0px ;    
+}
+
+/* Der neue, farbige Textblock (Blaues Band wie im dlv-Beispiel) */
+.header-text-block {
+    background: linear-gradient(135deg, var(--reiter-blue) 20%, #e67f36 150%);
+    color: #ffffff;
+    padding: 35px 45px; /* Einheitlicher Innenabstand für den gesamten Block */
+}
+
+.job-title {
+    font-size: 24pt;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px; /* Abstand zu den Badges darunter */
+    line-height: 1.3;
+}
+
+.badge-container {
+    display: flex;
+    flex-wrap: wrap; /* Wichtig für die mobile Ansicht */
+    gap: 10px;
+}
+
+/* Styling für deine Badges (optional, falls du es noch brauchst) */
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 9.5pt;
+    font-weight: 600;
+}
+.badge.accent {
+    background-color: #ffffff;
+    color: var(--reiter-blue);
+}
+
+
+/* ======================================
+   4. LAYOUT SPALTEN-SYSTEM
+   ======================================*/
+.content-layout {
+    display: flex;
+    gap: 40px; /* Abstand zwischen der linken und rechten Hauptspalte */
+    padding: 40px 45px;
+    background-color: #ffffff;
+}
+
+/* Beide Hauptseiten teilen sich den Platz 50:50 auf Desktop-Geräten */
+.main-column-left,
+.main-column-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: solid 5px var(--reiter-blue);
+}
+
+/* Abstand zwischen den untereinander gestapelten Boxen auf der linken Seite */
+.main-column-left .content-column-left {
+    margin-bottom: 35px;
+}
+
+/* Allgemeines Styling für Überschriften in den Boxen */
+.content-layout h2 {
+    font-size: 14pt;
+    color: var(--reiter-blue);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.content-layout .content-block ul li{
+    font-weight: 700;
+    color: var(--reiter-blue);
+}
+
+.content-block {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/* ======================================
+   5. LISTEN-STYLING MIT ENTSPRECHENDEM DOPPELPFEIL
+   ======================================*/
+.content-layout ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-layout ul li {
+    font-size: 11.5pt;
+    color: #334155;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 24px; /* Platz für den breiteren Pfeil */
+}
+
+/* Der markante Pfeil vor jedem Listenpunkt */
+.content-layout ul li::before {
+    content: "➔";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    color: var(--reiter-blue);
+    font-size: 11pt;
+    font-weight: bold;
+    line-height: 1;
+}
+/* ======================================
+   5. RESPONSIVE DESIGN (Für Mobilgeräte)
+   ======================================*/
+@media (max-width: 768px) {
+    .content-layout {
+        flex-direction: column; /* Spalten brechen auf Handys untereinander */
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    
+    .content-column-right .content-block {
+        margin-bottom: 30px;
+    }
+}
+
+
+/* ======================================
+   6. RECRUITER / CONTACT BOX (Rechte Seite unten)
+   ======================================*/
+.main-column-right .recruiter-box {
+    margin-top: 35px;
+    background-color: #c8dbee; /* Diskreter, hellgrauer Hintergrund zur Abhebung */
+    padding: 25px;
+    border-radius: 12px;
+    /* border-left: 4px solid var(--reiter-blue); Edler blauer Akzentstrich */
+}
+
+.recruiter-profile {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.recruiter-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10%; /* Macht das Profilbild kreisrund */
+    border: 2px solid #e2e8f0;
+}
+
+.recruiter-info h3 {
+    font-size: 11.5pt;
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.recruiter-info p {
+    font-size: 10.5pt;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.recruiter-info .role {
+    font-weight: 600;
+    color: var(--reiter-gray);
+    margin-bottom: 6px;
+}
+
+/* Fix für das responsive Verhalten der neuen Box */
+@media (max-width: 768px) {
+    .main-column-right .recruiter-box {
+        margin-top: 15px; /* Weniger Abstand auf Smartphones */
+    }
+    .recruiter-profile {
+        flex-direction: row; /* Behält das Bild links neben dem Text auch mobil bei */
+    }
+}
+
+
+/* ======================================
+   7. ZUSAMMENFASSUNG (Full Width)
+   ======================================*/
+.job-footer-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.job-footer-section .summary p {
+    font-size: 10.5pt;
+    color: var(--reiter-blue);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: center; /* Zentrierter Text wirkt bei Schlussabsätzen sehr harmonisch */
+}
+
+.job-footer-section .summary p:last-child {
+    margin-bottom: 0;
+}
+
+/* ======================================
+   8. BEWERBUNGS-BUTTONS
+   ======================================*/
+.apply-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 45px 50px 45px; /* Reichlich Platz nach unten hin */
+    background-color: #ffffff;
+}
+
+/* Gemeinsame Button-Basis */
+.apply-actions button {
+    padding: 14px 30px;
+    font-size: 11pt;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Haupt-Button: Jetzt Online Bewerben (Im Reiter-Blau) */
+.btn-primary {
+    background-color: var(--reiter-blue);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(3, 95, 165, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: #024a82; /* Dunkleres Blau beim Hovern */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(3, 95, 165, 0.35);
+}
+
+/* Neben-Button: Weitere Jobs ansehen (Dezent grau/transparent) */
+.btn-secondary {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+    transform: translateY(-2px);
+}
+
+/* Mobil-Optimierung für die Buttons */
+@media (max-width: 600px) {
+    .apply-actions {
+        flex-direction: column; /* Buttons stehen auf Handys untereinander */
+        padding: 20px 20px 40px 20px;
+    }
+    
+    .apply-actions button {
+        width: 100%; /* Volle Breite auf dem Smartphone */
+    }
+}
+
+
+/* ==========================================
+   ZURÜCK-BUTTON ZUM PORTFOLIO
+   ========================================== */
+.btn-back-to-portfolio {
+    display: inline-block;
+    margin: 20px 0 10px 20px; /* Abstand nach außen */
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #1e293b; /* Elegantes Anthrazit */
+    text-decoration: none;
+    font-size: 13pt;
+    font-weight: 800;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover-Effekt: Button hebt sich leicht ab */
+.btn-back-to-portfolio:hover {
+    background-color: #f8fafc;
+    color: #0f172a;
+    border-color: #cbd5e1;
+    transform: translateX(-3px); /* Bewegt den Button minimal nach links */
+}
+
+/* Der Pfeil bekommt eine kleine Animation */
+.btn-back-to-portfolio .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-right: 4px;
+}
+
+.btn-back-to-portfolio:hover .arrow {
+    transform: translateX(-2px); /* Schiebt nur den Pfeil beim Hovern weiter nach links */
+}
