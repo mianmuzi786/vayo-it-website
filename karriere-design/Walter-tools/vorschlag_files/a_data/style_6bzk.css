@@ -1,0 +1,707 @@
+/* Version: 05.03.2018 */
+
+@font-face { 
+	font-family: "Raleway";
+	src: url(../../ofl/raleway/Raleway[wght].woff2) format('woff2') ;
+	font-weight: 300, 400, 500, 600, 700, 800, 900;
+	font-style: normal;
+}
+
+@font-face { 
+	font-family: "Raleway";
+	src: url(../../ofl/raleway/Raleway-Italic[wght].woff2) format('woff2') ;
+	font-weight: 300, 400, 500, 600, 700, 800, 900;
+	font-style: italic;
+}
+
+ /* ------------------- NICHT VERÄNDERN ------------------------- */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+ html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ /* ----------------------------------------------------------- */
+
+body {
+  font-family: 'Raleway', sans-serif;
+/* ------------------- NICHT VERÄNDERN ------------------------- */
+  font-size: 100%;
+ /* ------------------------------------------------------------ */
+  color: #000;
+  text-decoration: none;
+  font-weight: normal;
+  word-spacing: normal;
+  line-height: 1.5;
+  background-color: #f1f1f1;
+  /*	Hintergrundbilder werden in Chrome mit ausgedruckt	*/
+  -webkit-print-color-adjust:exact;
+/* 	background-color:#e5eff5;*/
+	background-attachment: fixed;
+	background-image: url(valon_titel.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+p {
+  margin: 0;
+}
+
+small{
+	font-size: 0.5em;
+}
+
+.abstand{
+  margin: 0 0 1rem 0;
+}
+
+h1 {
+  line-height: 1.5;
+  font-size: 1.4rem;
+   font-weight: bold;
+	color: #406f75;
+  margin: 1.3rem 0 0 0;
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+	padding-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  font-weight: 600;
+		color: #406f75;
+}
+h3 {
+	text-align: center;
+
+  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 600;
+color: #406F75;
+}
+
+.frame-outer {
+  position: relative;
+  padding: 0;
+  width: 720px;
+  margin: 1.3rem auto;
+  background-color: #FFF;
+  
+  font-size: 0.8rem;
+}
+
+.frame-outer::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.txt_gt{
+	font-size: 1.2em;
+	line-height: 1.45em;
+}
+
+.logo {
+	width:100%;
+	position: absolute;
+	z-index: 5;
+	text-align: center;
+	padding: 3% 3%;
+}
+
+.header {
+  position: relative;
+}
+
+.farbe{
+color: #406F75;
+}
+
+.sub-title{
+font-size: 1rem;
+	padding-bottom: 1.5rem;
+font-weight: 600;
+	color: #406f75;
+}
+.sub-title2{
+font-size: 1rem;
+	padding-bottom: 1.5rem;
+font-weight: 600;
+}
+
+.title-block {
+  position: absolute;
+  bottom: 2%;
+width: 100%;
+	text-align: center;
+	z-index: 3;
+} 
+
+.content {
+  padding: 2rem 3%;
+}
+.content-gold {
+  padding: 1.1rem 3%;
+	background-color: #ca9c5a;
+	color: #fff;
+}
+.content-petrol {
+  padding: 1.1rem 3%;
+	background-color: #406f75;
+	color: #fff;
+}
+.content-verlauf {
+  padding: 1.5rem 3%;
+background-image:linear-gradient(90deg,#778c7d,#4d6e6f,#354047,#332f2e);
+	color: #fff;
+	text-align: center;
+}
+
+.content::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.box-left {
+  float: left;
+  width: 48%;
+}
+
+.box-right {
+  float: right;
+  width: 48%;
+}
+.col{
+	width: 40%;
+}
+.col2{
+	width: 20%;
+}
+
+
+.footer {
+  padding: 2rem 3%;
+	background-color: #ca9c5a;
+	color: #fff;
+	border-bottom: 10px solid #406f75;
+}
+
+
+.footer::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto9;
+  border: 0;
+  vertical-align: middle;
+}
+
+a:link {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+   color: #fff;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #406F75;
+}
+
+a:active {
+  text-decoration: none;
+   color: #fff;
+}
+
+ul {
+  margin: 0 auto 1rem 0.5rem;
+  padding-left: 0.5rem;
+   list-style:none;
+  /* ------------- FALLS ETWAS ANDERES ALS DIE STANDARD AUFZÄHLUNGSZEICHEN GEWÜNSCHT ----------------  */
+  /* list-style-type: none; */
+  /* DANN MUSS "list-style-type: disc;" GELÖSCHT WERDEN.
+  /* ------------------------------------------------------------------------------------------------- */
+}
+
+li {
+  /* ------------- FALLS ETWAS ANDERES ALS DIE STANDARD AUFZÄHLUNGSZEICHEN GEWÜNSCHT ----------------  */
+   position: relative;
+  /* ------------------------------------------------------------------------------------------------- */
+  margin: auto;
+  padding-left: 0.5rem;
+}
+
+/* --------------- FALLS ETWAS ANDERES ALS DIE STANDARD AUFZÄHLUNGSZEICHEN GEWÜNSCHT ----------------  */
+
+ 
+li::before {
+  position: absolute;
+  top: -0.6rem;
+  left: -0.8rem;
+  content: "•";
+  font-size:1.6rem;
+  color: #ca9c5a;
+}
+
+
+.clear {
+  clear: both;
+  font-size: 0;
+  line-height: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.refnr {}
+
+.justifier {
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.justifier:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+p:empty {
+  height: 1rem;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  /* ----------- LÄSST GRENZEN VERSCHWINDEN, SODASS KEINe BEGRENZUNG ERSCHEINT ----------------- */
+  /* border-collapse: collapse; */
+  /* --------------------------------------------------------------------------------------------*/
+  table-layout: fixed;
+  /* ----------- ERSTELLT EINEN BEGRENZUNGSRAHMEN JEDOCH AN ALLEN SEITEN ----------------------- */
+  /* border-spacing: 3rem; */
+  /* --------------------------------------------------------------------------------------------*/
+}
+
+.row {
+  display: table-row;
+}
+
+.cell-left,
+.cell-right {
+  display: table-cell;
+  vertical-align: bottom;
+  padding: 1rem 3%;
+}
+
+.cell-left {
+  border-right: 15px solid #fff;
+}
+
+.cell-right {
+  border-left: 15px solid #fff;
+}
+
+.bg-darkblue {
+  background: rgb(78, 147, 250);
+}
+
+.bg-lightblue {
+  background: rgb(127, 174, 245);
+}
+
+/* -------------- FLEXBOX EIGENSCHAFTEN -------------------- */
+/* -----GENERELL: FLEXBOX STATT FLOAT NEHMEN, DA SIE BESSERE OPTIONEN ZUR GESTALTUNG BIETEN, 
+JEDOCH DARAUF ACHTEN, DASS FLEXBOXEN NICHT VOM INTERNET EXPLORER 9 UND ABWÄRTS UNTERSTÜTZT WERDEN. => IN DEM FALL FLOATEN --------------------- */
+
+/* .flex {
+  display: table;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+} 
+*/
+
+/* -------------- FLEXBOX EIGENSCHAFTEN FÜR GLEICHE HOHE BOXEN MIT "PLATZ ZWISCHEN DEN BOXEN" (siehe "justify-content: space-between;") -------------------- */
+
+.flex {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+	border-top: 2px solid #ca9c5a;
+		border-bottom: 2px solid #ca9c5a;
+}
+
+.left {
+  width: 50%;
+  padding: 1rem 3%;
+}
+
+.right {
+  width: 50%;
+  padding: 1rem 3%;
+	background-color: #efe1cd;
+}
+
+.box{
+	padding: 1rem 3%;
+	background-color: #F8F8F8;
+	margin: 1rem 0;
+}
+
+.button_box {
+  text-align: center;
+}
+
+.button_box::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+
+/*_______________________
+
+BUTTON MIT ANIMATION
+_______________________
+*/
+
+.button a {
+  display: inline-block;
+  background: #ca9c5a;
+  padding: 0.6rem 2rem 0.6rem 2rem;
+
+  cursor: pointer;
+	font-size: 1.1em;
+  border-radius: 1.5rem;
+	text-decoration: none;
+	letter-spacing: 1px;
+  transition: all 140ms ease 0s;
+  -moz-transition: all 140ms ease 0s;
+  -webkit-transition: all 140ms ease 0s;
+  color: #fff;
+}
+.button a:hover {
+  background-position: 15px center;
+  background-color: #AC7C37;
+
+}
+
+/*Slider*/
+
+.slider-wrap {
+	max-width:720px;
+  	width: auto;
+  	height: auto;
+	position:relative;
+	overflow: hidden;
+}
+
+/* BEGINN Slider mit 3 Bildern mit transform Animation */
+
+.slideshow-3-bilder {
+	position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+.slideshow-3-bilder li span {
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: none;
+  opacity: 0;
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-animation: image 18s linear infinite;
+  animation: image-3-bilder 18s linear infinite;
+}
+
+@keyframes image-3-bilder {
+  0% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  
+  1% {
+    transform: translateX(0);
+  }
+  
+  33.3333% {
+    transform: translateX(0);
+	
+  }
+  
+  34.3333% {
+    transform: translateX(-100%);
+
+  }
+	100%{
+		transform: translateX(-100%);
+	 opacity: 1;
+	}
+
+}
+@-webkit-keyframes image-3-bilder {
+ 0% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  
+  1% {
+    transform: translateX(0);
+  }
+  
+  33.3333% {
+    transform: translateX(0);
+	
+  }
+  
+  34.3333% {
+    transform: translateX(-100%);
+
+  }
+	100%{
+		transform: translateX(-100%);
+	 opacity: 1;
+	}
+}
+
+.slideshow-3-bilder li {
+    margin:0;
+    padding:0;
+  list-style: none;
+}
+
+.slideshow-3-bilder li:nth-child(1) span {
+}
+
+.slideshow-3-bilder li:nth-child(2) span {
+  -webkit-animation-delay: 6s;
+  animation-delay: 6s;
+}
+
+.slideshow-3-bilder li:nth-child(3) span {
+  -webkit-animation-delay: 12s;
+  animation-delay: 12s;
+}
+
+ul.slideshow-3-bilder {
+    margin:0;
+}
+
+
+.slider-wrap li::before{
+                display:none;
+}
+
+.slider-wrap ul {
+                margin:0;
+                padding-left:0px;
+                list-style-type: none;
+                list-style:none;
+			    border-bottom:none;
+	            border-color: #fff;
+                border-width: 0px;
+				padding-bottom:5px;
+}
+
+/* ENDE Slider mit 3 Bildern mit transform Animation */
+
+
+/* BEGINN Slider mit 4 Bildern mit transform Animation */
+
+.slideshow-4-bilder {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+.slideshow-4-bilder li span {
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: none;
+  opacity: 0;
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-animation: image 24s linear infinite;
+  animation: image-4-bilder 24s linear infinite;
+}
+
+@keyframes image-4-bilder {
+  0% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  
+  1% {
+    transform: translateX(0);
+  }
+  
+  24% {
+    transform: translateX(0);
+	
+  }
+  
+  25% {
+    transform: translateX(-100%);
+
+  }
+	100%{
+		transform: translateX(-100%);
+	opacity: 1;
+	}
+}
+
+@-webkit-keyframes image-4-bilder {
+  0% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  
+  1% {
+    transform: translateX(0);
+  }
+  
+  24% {
+    transform: translateX(0);
+	
+  }
+  
+  25% {
+    transform: translateX(-100%);
+
+  }
+	100%{
+		transform: translateX(-100%);
+	opacity: 1;
+	}
+}
+
+.slideshow-4-bilder li {
+    margin:0;
+    padding:0;
+  list-style: none;
+}
+
+.slideshow-3-bilder li:nth-child(1) span {
+}
+
+.slideshow-4-bilder li:nth-child(2) span {
+  -webkit-animation-delay: 6s;
+  animation-delay: 6s;
+}
+
+.slideshow-4-bilder li:nth-child(3) span {
+  -webkit-animation-delay: 12s;
+  animation-delay: 12s;
+}
+
+.slideshow-4-bilder li:nth-child(4) span {
+  -webkit-animation-delay: 18s;
+  animation-delay: 18s;
+}
+
+ul.slideshow-4-bilder {
+    margin:0;
+}
+
+.slider-wrap li::before{
+                display:none;
+}
+
+.slider-wrap ul {
+                margin:0;
+                padding-left:0px;
+                list-style-type: none;
+                list-style:none;
+		border-bottom:none;
+	        border-color: #fff;
+                border-width: 0px;
+		padding-bottom:5px;
+}
+
+/* ENDE Slider mit 4 Bildern mit transform Animation */
+
+
+/* SLIDER ENDE */
+
+
+
+/*
+_______________________
+
+KAPITÄLCHEN, BULLETPOINT
+_______________________
+
+<span class="capital" style="float: left; width: 43px; height: 20px; line-height: 47px; background: transparent; font-size: 38px; margin-top: -5px; margin-right: -32px; margin-bottom: 5px; background-color: transparent;">I</span>
+
+ul li {
+background: url(bp.jpg) no-repeat 2px 5px; padding-left:8px;
+}
+
+
+/*
+_______________________
+
+MARKIERTER TEXT
+_______________________
+
+::selection {
+background: #ffb7b7;
+}
+::-moz-selection {
+background: #ffb7b7;
+}
+
+*/
+.apply {}
